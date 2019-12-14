@@ -13,11 +13,15 @@ render(app, {
   });
 
 // 使用koa-static中间件
-app.use(static(__dirname + "/public"));
+app.use(static(path.join(__dirname + "/public")));
 
 
 app.use(async ctx => {
     await ctx.render('index');
 })
+
+// router.get("/",async (ctx) => {
+//   await ctx.render('index');
+// })
 
 app.listen(3000);
